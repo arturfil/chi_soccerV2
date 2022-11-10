@@ -24,9 +24,11 @@ func Run() error {
 		return err
 	}
 
+	// new services will be added here
 	groupService := group.NewService(db)
 	fieldService := field.NewService(db)
 
+	// I will pass all the services here in the transporhttp obj
 	groupHttpHandler := transportHttp.NewHandler(groupService, fieldService)
 
 	if err := groupHttpHandler.Serve(); err != nil {
